@@ -7,6 +7,7 @@ module.exports = {
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -16,6 +17,9 @@ module.exports = {
   resolve: {
     modules: [__dirname, "src", "node_modules"],
     extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   module: {
     rules: [
