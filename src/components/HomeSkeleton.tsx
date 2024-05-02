@@ -11,7 +11,7 @@ const HomeSkeleton = () => (
 export default HomeSkeleton;
 
 const Container = styled.div`
-  gap: 10px;
+  gap: 15px;
   display: flex;
   overflow: hidden;
 `;
