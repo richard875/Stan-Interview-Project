@@ -6,6 +6,8 @@
   "scripts": {
     "dev": "webpack serve",
     "build": "webpack --config webpack.config.js --mode production",
+    "start": "serve -s dist -l 9000",
+    "serve": "npm run build && npm run start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "tscheck": "tsc"
   },
@@ -26,6 +28,7 @@
     "css-loader": "7.1.1",
     "file-loader": "6.2.0",
     "html-webpack-plugin": "5.6.0",
+    "serve": "^14.2.3",
     "style-loader": "4.0.0",
     "typescript": "5.4.5",
     "webpack": "5.91.0",
