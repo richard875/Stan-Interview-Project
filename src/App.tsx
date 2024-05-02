@@ -1,9 +1,30 @@
-import React from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import Error from "./pages/Error";
+import Layout from "./pages/Layout";
+import Program from "./pages/Program";
 
-const App = () => (
-  <div>
-    <h1>Hello, World!</h1>
-  </div>
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/program/:id",
+        element: <Program />,
+      },
+      {
+        path: "*",
+        element: <Error />,
+      },
+    ],
+  },
+]);
+
+const App = () => <RouterProvider router={router} />;
 
 export default App;
