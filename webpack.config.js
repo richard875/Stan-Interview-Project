@@ -1,11 +1,12 @@
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./src/index.tsx",
   mode: "development",
   output: {
-    filename: "bundle.js",
+    filename: "app.js",
     path: path.resolve(__dirname, "dist"),
     publicPath: "/",
   },
@@ -20,6 +21,13 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        extractComments: false,
+      }),
+    ],
   },
   module: {
     rules: [
@@ -36,7 +44,10 @@ module.exports = {
       {
         test: /\.(png|svg|jpg|gif)$/,
         exclude: /node_modules/,
-        use: ["file-loader"],
+        loader: "file-loader",
+        options: {
+          name: "[name].[ext]",
+        },
       },
     ],
   },
