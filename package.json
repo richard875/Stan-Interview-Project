@@ -4,7 +4,7 @@
   "description": "Stan Interview Project",
   "main": "src/index.tsx",
   "scripts": {
-    "dev": "webpack serve",
+    "dev": "webpack serve --port 8000",
     "build": "webpack --config webpack.config.js --mode production",
     "start": "serve -s dist -l 9000",
     "serve": "npm run build && npm run start",
