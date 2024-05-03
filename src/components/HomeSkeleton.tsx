@@ -3,7 +3,7 @@ import styled from "styled-components";
 const HomeSkeleton = () => (
   <Container>
     {[...Array(20)].map((_, i) => (
-      <Card key={i} />
+      <Card data-testid="skeleton-card" key={i} />
     ))}
   </Container>
 );
