@@ -15,7 +15,7 @@ const TopBar = () => {
       </Link>
       <Menu>
         <Link to={"/"}>
-          <MenuItem $selected={type !== "series" && type !== "movie"}>
+          <MenuItem $selected={location.pathname === "/" && !type}>
             Home
           </MenuItem>
         </Link>
