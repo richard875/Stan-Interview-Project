@@ -2,7 +2,7 @@ type MediaType = {
   id: number;
   title: string;
   description: string;
-  type: string;
+  type: "series" | "movie";
   image: string;
   rating: string;
   genre: string;
