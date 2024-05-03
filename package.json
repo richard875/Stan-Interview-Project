@@ -16,6 +16,10 @@
   "resolutions": {
     "styled-components": "^5"
   },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=8.0.0"
+  },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.3",
     "react": "18.3.1",
