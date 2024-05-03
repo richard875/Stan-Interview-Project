@@ -14,15 +14,15 @@ const TopBar = () => {
         <img src={Logo} alt="Stan Logo" />
       </Link>
       <Menu>
-        <Link to={"/"}>
+        <Link data-testid="home" to={"/"}>
           <MenuItem $selected={location.pathname === "/" && !type}>
             Home
           </MenuItem>
         </Link>
-        <Link to={"/?type=series"}>
+        <Link data-testid="series" to={"/?type=series"}>
           <MenuItem $selected={type === "series"}>TV Shows</MenuItem>
         </Link>
-        <Link to={"/?type=movie"}>
+        <Link data-testid="movie" to={"/?type=movie"}>
           <MenuItem $selected={type === "movie"}>Movies</MenuItem>
         </Link>
       </Menu>
