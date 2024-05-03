@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Error from "./Error";
 import useQuery from "src/hooks/UseQuery";
 import TopBar from "src/components/TopBar";
-import breakpoint from "src/styles/Breakpoint";
+import breakpoint from "../styles/Breakpoint";
 import FetchMedia from "src/services/FetchMedia";
 import { assign, assignConst } from "src/redux/MediaSlice";
 import { useAppDispatch, useAppSelector } from "src/redux/Store";

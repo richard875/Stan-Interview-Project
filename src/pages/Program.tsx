@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import MediaType from "src/types/MediaType";
-import breakpoint from "src/styles/Breakpoint";
+import breakpoint from "../styles/Breakpoint";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 

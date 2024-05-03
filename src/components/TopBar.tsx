@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Logo from "../../static/logo.svg";
 import useQuery from "src/hooks/UseQuery";
-import breakpoint from "src/styles/Breakpoint";
+import breakpoint from "../styles/Breakpoint";
 
 const TopBar = () => {
   const query = useQuery();
