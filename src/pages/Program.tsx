@@ -1,9 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
+import Error from "./Error";
 import MediaType from "src/types/MediaType";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
+
+const Render = ({ media }: { media: MediaType }) =>
+  media ? (
+    <Container>
+      <Card src={media.image} />
+      <Right>
+        <Line1>{media.title}</Line1>
+        <Line2>
+          {media.rating.replaceAll(" ", "")} | {media.year}
+          {media.type === "series" ? " | 1 Season" : ""} | {media.genre} |{" "}
+          {media.language}
+        </Line2>
+        <Line3>{media.description}</Line3>
+      </Right>
+    </Container>
+  ) : (
+    <ProgramSkeleton />
+  );
 
 const Program = () => {
   // Navigation
@@ -38,21 +57,7 @@ const Program = () => {
     }
   }, [id, mediaData]);
 
-  return media ? (
-    <Container>
-      <Card src={media.image} />
-      <Right>
-        <Line1>{media.title}</Line1>
-        <Line2>
-          {media.rating.replaceAll(" ", "")} | {media.year} | 1 Season |{" "}
-          {media.genre} | {media.language}
-        </Line2>
-        <Line3>{media.description}</Line3>
-      </Right>
-    </Container>
-  ) : (
-    <ProgramSkeleton />
-  );
+  return media ? <Render media={media} /> : <Error />;
 };
 
 export default Program;
