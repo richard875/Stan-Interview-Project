@@ -14,7 +14,9 @@ const TopBar = () => {
       </Link>
       <Menu>
         <Link to={"/"}>
-          <MenuItem $selected={!type}>Home</MenuItem>
+          <MenuItem $selected={type !== "series" && type !== "movie"}>
+            Home
+          </MenuItem>
         </Link>
         <Link to={"/?type=series"}>
           <MenuItem $selected={type === "series"}>TV Shows</MenuItem>
