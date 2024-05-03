@@ -59,7 +59,6 @@ export default Layout;
 const Container = styled.div`
   height: 100%;
   color: #ffffff;
-  background-color: #101010;
 `;
 
 const Wrapper = styled.div`

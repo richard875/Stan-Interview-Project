@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import MediaType from "src/types/MediaType";
+import breakpoint from "src/styles/breakpoint";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 
@@ -64,10 +65,15 @@ export default Program;
 
 const Container = styled.div`
   gap: 50px;
-  height: 315px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   margin-top: 50px;
+
+  @media ${breakpoint.up.sm} {
+    height: 315px;
+    flex-direction: row;
+  }
 `;
 
 const Card = styled.img`
@@ -97,7 +103,7 @@ const Line2 = styled.h5`
 `;
 
 const Line3 = styled.p`
-  width: 600px;
+  max-width: 600px;
   font-size: 17px;
   font-weight: 500;
   letter-spacing: 1px;
