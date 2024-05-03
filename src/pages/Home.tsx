@@ -63,7 +63,10 @@ const Home = () => {
     };
   }, [handleKeyDown]);
 
-  React.useEffect(() => setSelected(undefined), [query]);
+  React.useEffect(() => {
+    setSelected(undefined);
+    ref.current?.scrollTo({ left: 0, behavior: "smooth" });
+  }, [query]);
 
   return mediaData && mediaData.length ? (
     <Container ref={ref}>
