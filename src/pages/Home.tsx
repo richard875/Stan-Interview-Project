@@ -1,9 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Link, useNavigate } from "react-router-dom";
 import { useAppSelector } from "src/redux/Store";
 import HomeSkeleton from "src/components/HomeSkeleton";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   // Get from Redux
   const mediaData = useAppSelector((state) => state.media.value);
 
@@ -44,6 +47,9 @@ const Home = () => {
 
       setSelected(selected! - 1);
     }
+
+    if (event.key === "Enter" && mediaData && selected)
+      navigate(`/program/${mediaData[selected].id}`);
   };
 
   React.useEffect(() => {
@@ -57,7 +63,9 @@ const Home = () => {
   return mediaData && mediaData.length ? (
     <Container ref={ref}>
       {mediaData.map((media, i) => (
-        <Card key={i} src={media.image} $selected={i === selected} />
+        <Link key={i} to={`/program/${media.id}`}>
+          <Card key={i} src={media.image} $selected={i === selected} />
+        </Link>
       ))}
     </Container>
   ) : (
@@ -90,4 +98,5 @@ const Card = styled.img<{ $selected: boolean }>`
   outline: ${(props) => (props.$selected ? "3px solid #009aff" : "none")};
   outline-offset: 3px;
   border-radius: 1px;
+  cursor: pointer;
 `;
