@@ -7,7 +7,7 @@ import breakpoint from "src/styles/breakpoint";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 
-const Render = ({ media }: { media: MediaType }) =>
+const Render = ({ media }: { media: MediaType | undefined }) =>
   media ? (
     <Container>
       <Card src={media.image} />
@@ -35,6 +35,7 @@ const Program = () => {
   // Get from Redux
   const mediaData = useAppSelector((state) => state.media.value);
 
+  const [error, setError] = React.useState(false);
   const [media, setMedia] = React.useState<MediaType>();
 
   const handleKeyDown = (event: KeyboardEvent) => {
@@ -54,11 +55,12 @@ const Program = () => {
   React.useEffect(() => {
     if (mediaData) {
       const data = mediaData.find((media) => media.id === Number(id));
+      if (!data) setError(true);
       setMedia(data);
     }
   }, [id, mediaData]);
 
-  return media ? <Render media={media} /> : <Error />;
+  return error ? <Error /> : <Render media={media} />;
 };
 
 export default Program;
