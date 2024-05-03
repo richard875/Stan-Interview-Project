@@ -9,11 +9,11 @@ export const mediaSlice = createSlice({
   name: "media",
   initialState,
   reducers: {
-    assign: (state, action: PayloadAction<MediaType[] | null>) => {
+    assignMedia: (state, action: PayloadAction<MediaType[] | null>) => {
       state.value = action.payload;
     },
   },
 });
 
-export const { assign } = mediaSlice.actions;
+export const { assignMedia } = mediaSlice.actions;
 export default mediaSlice.reducer;
