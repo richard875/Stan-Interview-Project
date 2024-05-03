@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Outlet } from "react-router-dom";
+import Error from "./Error";
 import TopBar from "src/components/TopBar";
 import { assign } from "src/redux/MediaSlice";
 import FetchMedia from "src/services/FetchMedia";
@@ -11,6 +12,8 @@ const Layout = () => {
   const dispatch = useAppDispatch();
   const mediaData = useAppSelector((state) => state.media.value);
 
+  const [isError, setIsError] = React.useState(false);
+
   // Fetch media data
   React.useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +21,8 @@ const Layout = () => {
         const data = await FetchMedia();
         if (data) dispatch(assign(data));
       } catch (error) {
+        setIsError(true);
         console.error("Error fetching media data:", error);
-        window.location.href = "/error";
       }
     };
 
@@ -31,7 +34,7 @@ const Layout = () => {
     <Container>
       <Wrapper>
         <TopBar />
-        <Outlet />
+        {isError ? <Error /> : <Outlet />}
       </Wrapper>
     </Container>
   );
