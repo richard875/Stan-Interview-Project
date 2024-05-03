@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`HomeSkeleton component renders correctly 1`] = `
+exports[`HomeSkeleton component it renders correctly 1`] = `
 <div
   className="sc-beqWNU leGJVV"
 >

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ProgramSkeleton component renders correctly 1`] = `
+exports[`ProgramSkeleton component it renders correctly 1`] = `
 <div
   className="sc-beqWNU gJfEHF"
 >

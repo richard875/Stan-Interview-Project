@@ -9,7 +9,7 @@ import { store } from "../../redux/Store";
 jest.mock("src/services/FetchMedia", () => jest.fn());
 
 describe("Layout component", () => {
-  it("renders the screen", () => {
+  test("it renders the screen", () => {
     render(
       <Provider store={store}>
         <BrowserRouter>
