@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 const Error = () => (
-  <Message>An unknown error occurred. please try again later</Message>
+  <Message data-testid="message">
+    An unknown error occurred. please try again later
+  </Message>
 );
 
 export default Error;
