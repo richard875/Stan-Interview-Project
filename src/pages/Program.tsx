@@ -7,7 +7,7 @@ import ProgramSkeleton from "src/components/ProgramSkeleton";
 
 const Program = () => {
   // Get the id from the URL
-  let { id } = useParams();
+  const { id } = useParams();
 
   // Get from Redux
   const mediaData = useAppSelector((state) => state.media.value);
