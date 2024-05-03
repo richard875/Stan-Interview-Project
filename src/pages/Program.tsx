@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import MediaType from "src/types/MediaType";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 
 const Program = () => {
+  // Navigation
+  const navigate = useNavigate();
+
   // Get the id from the URL
   const { id } = useParams();
 
@@ -13,6 +16,20 @@ const Program = () => {
   const mediaData = useAppSelector((state) => state.media.value);
 
   const [media, setMedia] = React.useState<MediaType>();
+
+  const handleKeyDown = (event: KeyboardEvent) => {
+    // Prevent default scrolling with arrow keys
+    event.preventDefault();
+    if (event.key === "Backspace") navigate("/");
+  };
+
+  React.useEffect(() => {
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown]);
 
   React.useEffect(() => {
     if (mediaData) {
