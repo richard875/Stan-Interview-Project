@@ -75,6 +75,7 @@ const Home = () => {
         <Link key={i} to={`/program/${media.id}`}>
           <Card
             key={i}
+            alt={media.title}
             src={media.image}
             data-testid="card"
             $selected={i === selected}

@@ -10,7 +10,7 @@ import ProgramSkeleton from "src/components/ProgramSkeleton";
 const Render = ({ media }: { media: MediaType | undefined }) =>
   media ? (
     <Container>
-      <Card src={media.image} />
+      <Card src={media.image} alt={media.title} />
       <Right>
         <Line1>{media.title}</Line1>
         <Line2>
