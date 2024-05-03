@@ -51,8 +51,9 @@ const Home = () => {
       setSelected(selected! - 1);
     }
 
-    if (event.key === "Enter" && mediaData && selected)
+    if (event.key === "Enter" && mediaData && selected !== undefined) {
       navigate(`/program/${mediaData[selected].id}`);
+    }
   };
 
   React.useEffect(() => {
