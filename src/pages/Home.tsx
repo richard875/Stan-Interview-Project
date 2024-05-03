@@ -70,7 +70,7 @@ const Home = () => {
   }, [query]);
 
   return mediaData && mediaData.length ? (
-    <Container ref={ref}>
+    <Container ref={ref} data-testid="container">
       {mediaData.map((media, i) => (
         <Link key={i} to={`/program/${media.id}`}>
           <Card
