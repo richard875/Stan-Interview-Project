@@ -3,7 +3,7 @@ import MediaType from "src/types/MediaType";
 const API_URL =
   "https://raw.githubusercontent.com/StreamCo/stan-tv-coding-challenge/master/reactjs/data.json";
 
-const FetchMedia = async (): Promise<MediaType[] | undefined> => {
+const FetchMedia = async (): Promise<MediaType[] | null> => {
   try {
     const response = await fetch(API_URL);
     return await response.json();
@@ -12,7 +12,7 @@ const FetchMedia = async (): Promise<MediaType[] | undefined> => {
     window.location.href = "/error";
   }
 
-  return undefined;
+  return null;
 };
 
 export default FetchMedia;
