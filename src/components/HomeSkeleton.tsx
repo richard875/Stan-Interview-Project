@@ -17,9 +17,9 @@ const Container = styled.div`
 `;
 
 const Card = styled.div`
+  margin: 6px;
   width: 200px;
   height: 300px;
   flex-shrink: 0;
   background-color: #606060;
-  margin: 6px;
 `;
