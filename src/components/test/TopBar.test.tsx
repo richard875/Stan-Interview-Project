@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import TopBar from "../TopBar";
 
 describe("TopBar component", () => {
-  test("renders TopBar with correct menu items", () => {
+  test("it renders TopBar with correct menu items", () => {
     render(
       <Router>
         <TopBar />
@@ -24,7 +24,7 @@ describe("TopBar component", () => {
     expect(movieLink).toBeInTheDocument();
   });
 
-  test("clicking on the Movies link navigates to the correct URL", () => {
+  test("clicking on the links navigate to the correct URL", () => {
     render(
       <Router>
         <TopBar />

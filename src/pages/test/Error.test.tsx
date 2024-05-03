@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import Error from "../Error";
 
 describe("Error component", () => {
-  it("should render the error message", () => {
+  test("it should render the error message", () => {
     render(<Error />);
 
     const message = screen.getByTestId("message");
@@ -13,7 +13,7 @@ describe("Error component", () => {
     );
   });
 
-  it("renders the message with the correct styles", () => {
+  test("it renders the message with the correct styles", () => {
     render(<Error />);
 
     const message = screen.getByTestId("message");
