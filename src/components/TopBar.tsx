@@ -10,7 +10,7 @@ const TopBar = () => {
   return (
     <Container>
       <Link to={"/"}>
-        <img width={150} src={Logo} alt="Stan Logo" />
+        <img src={Logo} alt="Stan Logo" />
       </Link>
       <Menu>
         <Link to={"/"}>
@@ -36,6 +36,10 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 40px;
+
+  img {
+    width: 150px;
+  }
 `;
 
 const Menu = styled.div`

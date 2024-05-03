@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const HomeSkeleton = () => (
   <Container>
-    {[...Array(20)].map((e, i) => (
+    {[...Array(20)].map((_, i) => (
       <Card key={i} />
     ))}
   </Container>

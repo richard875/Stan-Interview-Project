@@ -40,11 +40,11 @@ const Line1 = styled(Card)`
 `;
 
 const Line2 = styled(Card)`
-  width: 350px;
+  width: 400px;
   height: 25px;
 `;
 
 const Line3 = styled(Card)`
-  width: 550px;
-  height: 140px;
+  width: 630px;
+  height: 130px;
 `;
