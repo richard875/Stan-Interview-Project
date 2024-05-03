@@ -1,13 +1,22 @@
 import React from "react";
 import styled from "styled-components";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Error from "./Error";
 import TopBar from "src/components/TopBar";
 import { assign } from "src/redux/MediaSlice";
 import FetchMedia from "src/services/FetchMedia";
 import { useAppDispatch, useAppSelector } from "src/redux/Store";
 
+// Query Params Hook
+const useQuery = () => {
+  const { search } = useLocation();
+
+  return React.useMemo(() => new URLSearchParams(search), [search]);
+};
+
 const Layout = () => {
+  const query = useQuery();
+
   // Redux
   const dispatch = useAppDispatch();
   const mediaData = useAppSelector((state) => state.media.value);
