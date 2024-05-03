@@ -1,8 +1,14 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import MediaType from "src/types/MediaType";
 
-const initialState: { value: MediaType[] | null } = {
+type InitialState = {
+  value: MediaType[] | null;
+  valueConst: MediaType[] | null;
+};
+
+const initialState: InitialState = {
   value: null,
+  valueConst: null,
 };
 
 export const mediaSlice = createSlice({
@@ -12,8 +18,11 @@ export const mediaSlice = createSlice({
     assign: (state, action: PayloadAction<MediaType[] | null>) => {
       state.value = action.payload;
     },
+    assignConst: (state, action: PayloadAction<MediaType[] | null>) => {
+      state.valueConst = action.payload;
+    },
   },
 });
 
-export const { assign } = mediaSlice.actions;
+export const { assign, assignConst } = mediaSlice.actions;
 export default mediaSlice.reducer;
