@@ -1,25 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import Error from "./Error";
+import useQuery from "src/hooks/UseQuery";
 import TopBar from "src/components/TopBar";
-import { assign } from "src/redux/MediaSlice";
 import FetchMedia from "src/services/FetchMedia";
+import { assign, assignConst } from "src/redux/MediaSlice";
 import { useAppDispatch, useAppSelector } from "src/redux/Store";
-
-// Query Params Hook
-const useQuery = () => {
-  const { search } = useLocation();
-
-  return React.useMemo(() => new URLSearchParams(search), [search]);
-};
 
 const Layout = () => {
   const query = useQuery();
 
   // Redux
   const dispatch = useAppDispatch();
-  const mediaData = useAppSelector((state) => state.media.value);
+  const mediaDataConst = useAppSelector((state) => state.media.valueConst);
 
   const [isError, setIsError] = React.useState(false);
 
@@ -28,7 +22,7 @@ const Layout = () => {
     const fetchData = async () => {
       try {
         const data = await FetchMedia();
-        if (data) dispatch(assign(data));
+        if (data) dispatch(assignConst(data));
       } catch (error) {
         setIsError(true);
         console.error("Error fetching media data:", error);
@@ -36,8 +30,18 @@ const Layout = () => {
     };
 
     // Only fetch data if it's not already in the store
-    if (!mediaData) fetchData();
+    if (!mediaDataConst) fetchData();
   }, []);
+
+  React.useEffect(() => {
+    const type = query.get("type");
+    if ((type === "series" || type === "movie") && mediaDataConst) {
+      const data = mediaDataConst.filter((item) => item.type === type);
+      dispatch(assign(data));
+    } else {
+      dispatch(assign(mediaDataConst));
+    }
+  }, [mediaDataConst, query]);
 
   return (
     <Container>

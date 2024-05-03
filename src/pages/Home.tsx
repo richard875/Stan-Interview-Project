@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
+import useQuery from "src/hooks/UseQuery";
 import { useAppSelector } from "src/redux/Store";
 import HomeSkeleton from "src/components/HomeSkeleton";
 
 const Home = () => {
+  // Navigation
+  const query = useQuery();
   const navigate = useNavigate();
 
   // Get from Redux
@@ -59,6 +62,8 @@ const Home = () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown]);
+
+  React.useEffect(() => setSelected(undefined), [query]);
 
   return mediaData && mediaData.length ? (
     <Container ref={ref}>
