@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Logo from "../../static/logo.svg";
 import useQuery from "src/hooks/UseQuery";
-import breakpoint from "../styles/Breakpoint";
 
 const TopBar = () => {
   const query = useQuery();
@@ -39,7 +38,7 @@ const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 40px;
 
-  @media ${breakpoint.up.sm} {
+  @media (min-width: 576px) {
     gap: 75px;
     justify-content: flex-start;
   }
@@ -47,7 +46,7 @@ const Container = styled.div`
   img {
     width: 100px;
 
-    @media ${breakpoint.up.sm} {
+    @media (min-width: 576px) {
       width: 150px;
     }
   }
@@ -57,7 +56,7 @@ const Menu = styled.div`
   display: flex;
   gap: 15px;
 
-  @media ${breakpoint.up.sm} {
+  @media (min-width: 576px) {
     gap: 35px;
   }
 `;
@@ -73,7 +72,7 @@ const MenuItem = styled.div<{ $selected: boolean }>`
     color: #ffffff;
   }
 
-  @media ${breakpoint.up.sm} {
+  @media (min-width: 576px) {
     font-size: 18px;
   }
 `;

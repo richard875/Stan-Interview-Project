@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import MediaType from "src/types/MediaType";
-import breakpoint from "../styles/Breakpoint";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 
@@ -71,7 +70,7 @@ const Container = styled.div`
   align-items: center;
   margin-top: 50px;
 
-  @media ${breakpoint.up.sm} {
+  @media (min-width: 576px) {
     height: 315px;
     flex-direction: row;
   }
