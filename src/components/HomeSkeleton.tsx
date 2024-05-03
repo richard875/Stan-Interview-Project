@@ -11,7 +11,7 @@ const HomeSkeleton = () => (
 export default HomeSkeleton;
 
 const Container = styled.div`
-  gap: 15px;
+  gap: 3px;
   display: flex;
   overflow: hidden;
 `;
@@ -21,4 +21,5 @@ const Card = styled.div`
   height: 300px;
   flex-shrink: 0;
   background-color: #606060;
+  margin: 6px;
 `;
