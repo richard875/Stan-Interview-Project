@@ -2,6 +2,9 @@
 
 ### Author: Richard Lee
 
+> [!TIP]
+> You can visit the live project here: https://stan.richard-lee.com/
+
 ## Description
 
 In this project, I have adhered closely to established guidelines by employing a range of technologies to develop a Single Page Application encompassing the `Home` and `Program` pages.
