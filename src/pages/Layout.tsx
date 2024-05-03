@@ -4,13 +4,14 @@ import { Outlet } from "react-router-dom";
 import Error from "./Error";
 import useQuery from "src/hooks/UseQuery";
 import TopBar from "src/components/TopBar";
-import breakpoint from "src/styles/breakpoint";
+import breakpoint from "src/styles/Breakpoint";
 import FetchMedia from "src/services/FetchMedia";
 import { assign, assignConst } from "src/redux/MediaSlice";
 import { useAppDispatch, useAppSelector } from "src/redux/Store";
 
 const Layout = () => {
   const query = useQuery();
+  const type = query.get("type");
 
   // Redux
   const dispatch = useAppDispatch();
@@ -35,7 +36,6 @@ const Layout = () => {
   }, []);
 
   React.useEffect(() => {
-    const type = query.get("type");
     if ((type === "series" || type === "movie") && mediaDataConst) {
       const data = mediaDataConst.filter((item) => item.type === type);
       dispatch(assign(data));
@@ -62,9 +62,9 @@ const Container = styled.div`
 `;
 
 const Wrapper = styled.div`
+  padding: 20px;
   margin: 0 auto;
   max-width: 1200px;
-  padding: 20px;
 
   @media ${breakpoint.up.sm} {
     padding: 30px;

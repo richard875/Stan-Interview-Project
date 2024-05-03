@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useParams, useNavigate } from "react-router-dom";
 import Error from "./Error";
 import MediaType from "src/types/MediaType";
-import breakpoint from "src/styles/breakpoint";
+import breakpoint from "src/styles/Breakpoint";
 import { useAppSelector } from "src/redux/Store";
 import ProgramSkeleton from "src/components/ProgramSkeleton";
 
@@ -26,15 +26,14 @@ const Render = ({ media }: { media: MediaType | undefined }) =>
   );
 
 const Program = () => {
-  // Navigation
-  const navigate = useNavigate();
-
-  // Get the id from the URL
+  // Navigation and URL
   const { id } = useParams();
+  const navigate = useNavigate();
 
   // Get from Redux
   const mediaData = useAppSelector((state) => state.media.value);
 
+  // Local state
   const [error, setError] = React.useState(false);
   const [media, setMedia] = React.useState<MediaType>();
 

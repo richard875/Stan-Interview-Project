@@ -4,7 +4,7 @@ const config = {
   testEnvironment: "jsdom",
   moduleNameMapper: {
     "^src/(.*)$": "<rootDir>/src/$1",
-    "\\.svg": "<rootDir>/src/__mocks__/fileMock.ts",
+    "\\.svg": "<rootDir>/src/__mocks__/FileMock.ts",
   },
 };
 
