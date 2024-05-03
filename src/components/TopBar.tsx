@@ -9,7 +9,7 @@ const TopBar = () => {
   const type = query.get("type");
 
   return (
-    <Container>
+    <Container data-testid="topBar">
       <Link to={"/"}>
         <img src={Logo} alt="Stan Logo" />
       </Link>

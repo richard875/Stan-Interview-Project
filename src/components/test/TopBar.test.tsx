@@ -1,14 +1,14 @@
 import "@testing-library/jest-dom";
+import { BrowserRouter } from "react-router-dom";
 import { render, fireEvent, screen } from "@testing-library/react";
-import { BrowserRouter as Router } from "react-router-dom";
 import TopBar from "../TopBar";
 
 describe("TopBar component", () => {
   test("it renders TopBar with correct menu items", () => {
     render(
-      <Router>
+      <BrowserRouter>
         <TopBar />
-      </Router>
+      </BrowserRouter>
     );
 
     // Check if Stan logo is rendered
@@ -26,9 +26,9 @@ describe("TopBar component", () => {
 
   test("clicking on the links navigate to the correct URL", () => {
     render(
-      <Router>
+      <BrowserRouter>
         <TopBar />
-      </Router>
+      </BrowserRouter>
     );
 
     // Find the links by its test ID and click it
