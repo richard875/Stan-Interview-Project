@@ -31,8 +31,8 @@ const Home = () => {
 
     if (event.key === "ArrowRight" && mediaData) {
       if (selected === mediaData.length - 1) return; // Last item
-      if (selected! % 5 === 0)
-        ref.current?.scrollTo({
+      if (selected! % 5 === 0 && ref.current)
+        ref.current.scrollTo({
           left: 1073 * Math.floor((selected! + 1) / 5),
           behavior: "smooth",
         });
@@ -42,8 +42,8 @@ const Home = () => {
 
     if (event.key === "ArrowLeft" && mediaData) {
       if (selected === 0) return; // First item
-      if (selected! % 5 === 0)
-        ref.current?.scrollTo({
+      if (selected! % 5 === 0 && ref.current)
+        ref.current.scrollTo({
           left: 1073 * Math.floor((selected! + 1) / 5 - 1),
           behavior: "smooth",
         });
@@ -65,14 +65,20 @@ const Home = () => {
 
   React.useEffect(() => {
     setSelected(undefined);
-    ref.current?.scrollTo({ left: 0, behavior: "smooth" });
+    if (ref.current && ref.current.scrollTo)
+      ref.current.scrollTo({ left: 0, behavior: "smooth" });
   }, [query]);
 
   return mediaData && mediaData.length ? (
     <Container ref={ref}>
       {mediaData.map((media, i) => (
         <Link key={i} to={`/program/${media.id}`}>
-          <Card key={i} src={media.image} $selected={i === selected} />
+          <Card
+            key={i}
+            src={media.image}
+            data-testid="card"
+            $selected={i === selected}
+          />
         </Link>
       ))}
     </Container>
